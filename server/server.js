@@ -20,13 +20,16 @@ app.use(express.static('server/public'));
 // POST for receiving guesses
 app.post('/guesses', (req, res) => {
   // guess data
-  // [
-  //   {
-  //     name:'',
-  //     guess: '',
-  //   }
-  // ]
-  const guessData = req.body;
+  // {
+  //   guesses: [
+  //     {
+  //       name:'',
+  //       guess: '',
+  //     }
+  //   ]
+  // }
+  const guessData = req.body.guesses;
+  console.log('guessData: ', guessData);
   const results = []; // round of guesses
 
   // Check against random number

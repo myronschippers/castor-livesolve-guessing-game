@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Guess A Number!</title>
-  <script src="vendors/jquery.min.js"></script>
-  <script src="scripts/client.js"></script>
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <h1>YOUR GAME HERE!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Guess A Number!</title>
+    <script src="vendors/jquery.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="appBar">
+      <h1 class="appBar-title">YOUR GAME HERE!</h1>
+      <button class="js-btn-restart">Restart</button>
+    </header>
+
+    <main class="container">
+      <!-- FORM for guesses -->
+      <ul class="playerList">
+        <li>
+          <span>Player 1</span>
+          <input
+            type="number"
+            placeholder="guess"
+            name="player1Guess"
+            class="field js-input-player1"
+          />
+        </li>
+        <li>
+          <span>Player 2</span>
+          <input
+            type="number"
+            placeholder="guess"
+            name="player2Guess"
+            class="field js-input-player2"
+          />
+        </li>
+        <li>
+          <span>Player 3</span>
+          <input
+            type="number"
+            placeholder="guess"
+            name="player3Guess"
+            class="field js-input-player3"
+          />
+        </li>
+      </ul>
+
+      <button class="btn js-btn-submit">Submit Guesses</button>
+
+      <!-- SHOW Results -->
+      <ul class="js-results">
+        <li>Player 1, guessed 0 <span>too high</span></li>
+      </ul>
+    </main>
+  </body>
 </html>
