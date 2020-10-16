@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { get } = require('jquery');
+const randomNumber = require('./modules/randomNumber');
+
 const app = express();
 const PORT = 5000;
-const randoNum = randomNumber(1, 25);
-const history = [];
+let randoNum = randomNumber(1, 25);
+let history = [];
 console.log(randoNum);
 
 // This must be added before GET & POST routes.
@@ -26,7 +27,6 @@ app.post('/guesses', (req, res) => {
   //   }
   // ]
   const guessData = req.body;
-  console.log(guessData);
   const results = []; // round of guesses
 
   // Check against random number
@@ -46,9 +46,8 @@ app.post('/guesses', (req, res) => {
   }
 
   history.push(results);
-  console.log(history);
 
-  res.sendStatus(200);
+  res.sendStatus(201);
 });
 
 // GET results of guesses / also full history
@@ -57,11 +56,14 @@ app.get('/results', (req, res) => {
 });
 
 // POST to restart with new random number
+app.post('/restart', (req, res) => {
+  randoNum = randomNumber(1, 25);
+  console.log(randoNum);
+  history = [];
+  console.log(history);
 
-// generate my random number
-function randomNumber(min, max) {
-  return Math.floor(Math.random() * (1 + max - min) + min);
-}
+  res.sendStatus(201);
+});
 
 app.listen(PORT, () => {
   console.log('Server is running on port', PORT);
